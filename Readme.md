@@ -8,7 +8,7 @@ Along my journey as a backend developer, I realize I am not writing codes for ju
 
 ### Topics Covered
 
-1. Responsibility
+1. [Responsibility](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Responsibility)
 2. Design Patterns
 3. Unit Tests
 4. Object Oriented Design
@@ -19,3 +19,4 @@ Along my journey as a backend developer, I realize I am not writing codes for ju
 9. Logging
 10. Error Handling
 11. Functional Programming
+12. Git

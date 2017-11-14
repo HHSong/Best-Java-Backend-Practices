@@ -77,6 +77,7 @@ Within a function, there could be multiple usages of the same data type, say int
 The access controll is there for a reason. It maintains data and flow integrity which is good. Yet, it provides useful information for readibility: whether it is a public API or a private helper function, whether this piece of code is potentially unit tested (more on unit test topic)?
 
 
+#### 8. Biolerplates
 
 
 
