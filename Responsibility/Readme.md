@@ -43,14 +43,14 @@ There is an entry inner class that holds the actually data for each key value pa
 
 #### 2. Three-layered service architecture
 So they are Application layer, Business layer, and Data layer. Each of them presents different responsibilities: gain controls to the frontend, perform business logic, data storage operation. And of course, there is one more layer at frontend for presentation. The typical folder structure would be:
-
+```
 |
 |--- controller (resource)
 |
 |--- service
 |
 |--- repository (DAO)
-
+```
 The backend is seperated in this way so that the application layer is reponsible for providing controls while the business layer does the validation and data transformation, and the data layer interact with whatever data storage you are having. Think about responsiblities, if we are introducing a new data storage server say MongoDB, do you verify the null data in the new MongodbRepository class? Definitely not! Whatever data passing from service layer should be trustworthy. Same for the other two layers, do you care about ORM (object-realational-mapping) in service layer? What if there is MongoDB, Oracle, Redis, and file system, the services would be overwhelmed by numerous result set parsing.
 
 #### 3. Database is for storage
