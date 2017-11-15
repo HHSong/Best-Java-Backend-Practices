@@ -14,7 +14,7 @@ Along my journey as a backend developer, I realize I am not writing codes for ju
 4. Object Oriented Design
 5. Dependency Management
 6. [Clean Codes](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Clean%20Codes)
-7. Do Not Repeat Yourself
+7. It Most Likely Has Been Done by Someone Else
 8. Dependency Injection
 9. Logging
 10. Error Handling
