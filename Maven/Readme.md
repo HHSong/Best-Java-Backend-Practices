@@ -12,7 +12,7 @@ Traditionally, we put external jars under classpath: typically a lib folder. The
 There is a concept in software developement called "convention over configuration" which proposes that the needs are common throughout numerous projects, why not follow the conventions? Hence, there is a predefine structure of a Maven project, a predefined cycle of building a project, a hierachy of configuration inheritance. 
 
 For the folder structure, this wiki image is really clear:
-![alt text](https://upload.wikimedia.org/wikipedia/commons/c/cf/Maven_CoC.svg)
+![alt text](https://upload.wikimedia.org/wikipedia/commons/c/cf/Maven_CoC.svg =250x)
 As can be seen, the test source are deferent from the main source. It makes packaging easier later on since we do not deploy tests to production servers.
 
 #### 2. ClassNotFoundException when class is there!!! 
