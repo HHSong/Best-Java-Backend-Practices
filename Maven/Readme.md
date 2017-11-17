@@ -12,7 +12,7 @@ Traditionally, we put external jars under classpath: typically a lib folder. The
 There is a concept in software developement called "convention over configuration" which proposes that the needs are common throughout numerous projects, why not follow the conventions? Hence, there is a predefine structure of a Maven project, a predefined cycle of building a project, a hierachy of configuration inheritance. 
 
 For the folder structure, this wiki image is really clear:
-![alt text](https://en.wikipedia.org/wiki/File:Maven_CoC.svg)
+![alt text](https://upload.wikimedia.org/wikipedia/commons/c/cf/Maven_CoC.svg)
 As can be seen, the test source are deferent from the main source. It makes packaging easier later on since we do not deploy tests to production servers.
 
 #### 2. ClassNotFoundException when class is there!!! 
@@ -113,6 +113,7 @@ Similar to java inheritance, pom files could be extended by specifying the paren
 - Mix and match: all three methods above could be mixed and match however we want.
 
 This diagram from tutorial.jenkov.com shows the hierachy:
+
 ![alt text](http://tutorials.jenkov.com/images/maven/maven-super-pom.png)
 
 #### 4. Assembly
