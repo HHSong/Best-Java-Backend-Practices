@@ -12,7 +12,7 @@ Along my journey as a backend developer, I realize I am not writing codes for ju
 2. Design Patterns
 3. [Unit Tests](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Unit%20Tests)
 4. Object Oriented Design <!-- late binding -->
-5. Maven - Dependency Management(https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Maven)
+5. [Maven - Dependency Management](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Maven)
 6. [Clean Codes](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Clean%20Codes)
 7. [It Most Likely Has Been Done by Someone Else](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/It%20Most%20Likely%20Has%20Been%20Done%20by%20Someone%20Else)
 8. [Dependency Injection](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Dependency%20Injection)
