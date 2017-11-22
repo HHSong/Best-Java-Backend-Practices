@@ -56,3 +56,46 @@ The backend is seperated in this way so that the application layer is reponsible
 #### 3. Database is for storage
 I have seen a company intensely use stored procedure for business operation. Even single insert query has its own stored procedure. And they say it is fast. Well... it is, but do you have enough compuational resources? If you have billion-dollar database servers, never mind. If you don't, the db would be a bottleneck for your server scalibility. The modern architecture gradually moves toward microservices. It is so much easier to spin up light-weight container like docker or vm boxes to overload your server computational resources. And there is more resilient stuff in microservices which is off the topic. So, treate you database as storage. Think about responsibility!
 
+
+#### 4. Single Responsibility
+I bet you and I both have seen something like this:
+```java
+public Data getArchieve(People people) {
+  Data data = null;
+  Flag flag = new Flag();
+  if (people.getDepartment() == HR) {
+    ...
+    SecurityChecker.verify(people);
+    ...
+    RawData raw = hrDptHandler.handle(people);
+    hrData = new MaskedData(raw);
+    flag.setIsAuthorized(true);
+    ...
+  } else {
+    ...
+    ...
+    ...
+    generalData = generalHandler.hand(people);
+    flag.setIsAuthorized(false);
+    ...
+  }
+
+  ...
+  // we use the value set previously
+  if (flag.isAuthorized()) {
+    ...
+    data = hrParser.parse(hrData);
+  } else {
+    ...
+    data = generalParser.parse(generalData);
+  }
+  return data;
+}
+```
+The flow for different data values or data types are fundamentally different, yet there are functions so generic and so testable that it has convoluted if else blocks in order to process various of inputs. From my point of view, this is definitely a bad smell. 
+First of all, the if else blocks tend to go so deep that it would not pass sonar scans. Also, it is so hard to keep tracking all the conditions for developers.
+Secondly, the code is so hard to test that we have to prepare data in so many highly coupled way. Imagine we have 12 different test cases written for this function and they all pass. Now as the requirement changes, there is a new condition introduced and the flag has one more attribute that signals the approval for specific accounting department. Since we never had this flag before, the changes might break all 12 cases where 10 of them should not be affected in any condition.
+The problem here is that the reponsibility of this function is no longer singular. It controls the flow, manipulates the data, verifies the input, and so on. Potentially the best thing we can do is to separate the concerns by having modules serving different purposes: flow control, verificaiton, data manipulation, etc.
+
+
+
