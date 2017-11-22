@@ -11,7 +11,7 @@ Along my journey as a backend developer, I realize I am not writing codes for ju
 1. [Responsibility](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Responsibility)
 2. Design Patterns
 3. [Unit Tests](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Unit%20Tests)
-4. Object Oriented Design <!-- late binding -->
+4. Object Oriented Design <!-- late binding, function with multiple parameters -->
 5. [Maven - Dependency Management](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Maven)
 6. [Clean Codes](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Clean%20Codes)
 7. [It Most Likely Has Been Done by Someone Else](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/It%20Most%20Likely%20Has%20Been%20Done%20by%20Someone%20Else)
@@ -20,4 +20,5 @@ Along my journey as a backend developer, I realize I am not writing codes for ju
 10. Error Handling
 11. Functional Programming
 12. [Git - Version Control](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Git)
-<!-- 13. Terminology/ Programmer's mindset -->
+13. Stateless Design
+<!-- 14. Terminology/ Programmer's mindset -->
