@@ -93,8 +93,11 @@ public Data getArchieve(People people) {
 }
 ```
 The flow for different data values or data types are fundamentally different, yet there are functions so generic and so testable that it has convoluted if else blocks in order to process various of inputs. From my point of view, this is definitely a bad smell. 
+
 First of all, the if else blocks tend to go so deep that it would not pass sonar scans. Also, it is so hard to keep tracking all the conditions for developers.
+
 Secondly, the code is so hard to test that we have to prepare data in so many highly coupled way. Imagine we have 12 different test cases written for this function and they all pass. Now as the requirement changes, there is a new condition introduced and the flag has one more attribute that signals the approval for specific accounting department. Since we never had this flag before, the changes might break all 12 cases where 10 of them should not be affected in any condition.
+
 The problem here is that the reponsibility of this function is no longer singular. It controls the flow, manipulates the data, verifies the input, and so on. Potentially the best thing we can do is to separate the concerns by having modules serving different purposes: flow control, verificaiton, data manipulation, etc.
 
 
