@@ -27,7 +27,7 @@ Vocabulary in Spring is slightly different: it is @Autowired instead of @Inject 
 - session: one in a http session
 - global session: one in a http global session
 
-Also, there is an "oppionated" view in Spring. For a backend service, there are @Controller, @Service, and @Repository annotations for the three layer respectively. As far as I can tell, there is absolutely no difference bewteen these three guys. They are plain vanilla serving the same functionality as @Component apart from signaling other developers the purpose of the class. 
+Also, there is an "oppionated" view in Spring, which can be reffered to "convention over configuration". For a backend service, there are @Controller, @Service, and @Repository annotations for the three layer respectively. As far as I can tell, there is absolutely no difference bewteen these three guys. They are plain vanilla serving the same functionality as @Component apart from signaling other developers the purpose of the class. 
 
 If a bean is required in the main class. It could be aquired from the Spring application context.
 

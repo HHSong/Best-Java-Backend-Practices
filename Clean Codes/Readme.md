@@ -79,6 +79,8 @@ The access controll is there for a reason. It maintains data and flow integrity 
 
 #### 8. Biolerplates
 
+#### 9. Functional style
+
 
 
 
