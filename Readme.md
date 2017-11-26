@@ -21,4 +21,5 @@ Along my journey as a backend developer, I realize I am not writing codes for ju
 11. Functional Programming
 12. [Git - Version Control](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Git)
 13. Stateless Design
-<!-- 14. Terminology/ Programmer's mindset -->
+14. Terminology/ Programmer's mindset
+15. Life Expectancy of Codes?
