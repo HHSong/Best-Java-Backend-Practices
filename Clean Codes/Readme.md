@@ -81,6 +81,6 @@ The access controll is there for a reason. It maintains data and flow integrity 
 
 #### 9. Functional style
 
-
+<!-- declare variables at proper position -->
 
 
