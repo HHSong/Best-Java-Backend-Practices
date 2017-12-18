@@ -89,7 +89,7 @@ Arrays.sort(array, (a, b) ->
 ```
 One of the function chains style is to use the Java8 stream APIs which also leverages higher-order functions.
 ```java
-//excerpt from Stream API document
+// excerpted from Stream API document
 int sum = widgets .stream()
                   .filter(w -> w.getColor() == RED)
                   .mapToInt(w -> w.getWeight())
