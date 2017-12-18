@@ -77,9 +77,26 @@ Within a function, there could be multiple usages of the same data type, say int
 The access controll is there for a reason. It maintains data and flow integrity which is good. Yet, it provides useful information for readibility: whether it is a public API or a private helper function, whether this piece of code is potentially unit tested (more on unit test topic)?
 
 
-#### 8. Biolerplates
+#### 8. Patterns
+Design Patterns are so well known that programmers recognize them easily. By incorpoaing the patterns, people know immediately what the purpose of the class is and where it is expected to be used. Thus, it largely reduces the need to explain the codes.
 
 #### 9. Functional style
+Functional programming advocates higher-order functions, function chains, and lambda expressions (more detail on functional programming topic). In Java, lambda expression largely reduces codes when simple implementation of an interface could be done in place. For example, when using comparator for sorting:
+```java
+Arrays.sort(array, (a, b) ->
+  a.lenght - b.length  
+);
+```
+One of the function chains style is to use the Java8 stream APIs which also leverages higher-order functions.
+```java
+//excerpt from Stream API document
+int sum = widgets .stream()
+                  .filter(w -> w.getColor() == RED)
+                  .mapToInt(w -> w.getWeight())
+                  .sum();
+```
+
+
 
 <!-- declare variables at proper position -->
 
