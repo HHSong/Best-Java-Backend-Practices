@@ -67,7 +67,7 @@ Back to our first intuitive solution -- force an updated dependency, sometime it
 ```
 We link the version to our properties.
 
-- Dependency Management:
+- Dependency Management: (more detail could be found associated with Maven BOM)
 ```xml
 <dependencyManagement>
   <dependencies>
