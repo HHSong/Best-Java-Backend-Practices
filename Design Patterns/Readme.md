@@ -95,13 +95,63 @@ The patterns are not mutually exclusive. You may, in or abstract factories, use 
 
 #### 3. Prototype (clone over new)
 - Motive
-The key concept of prototyping is to clone. By implementing the Clonable interface, "new" action happens internally and all the setup, depending on implementation, would be cloned to the newly initiated object. 
+The key concept of prototyping is to clone. By implementing the Cloneable interface, "new" action happens internally and all the setup, depending on implementation, would be cloned to the newly initiated object. 
+```java
+public interface Prototype extends Clonable {
+
+}
+
+public class InternalProduct implements Clonable {
+  @Override
+  public Object clone() {
+    // some heavy copy implementation
+  }
+}
+
+public class ExternalProduct implements Clonable {
+  @Override
+  public Object clone() {
+    // some heavy copy implementation
+  }
+}
+
+public class SomeClientClass {
+  public void someMethod() {
+    // exisitingInternalPrototype is previously built or passed in as argument
+    doSomethingInternal(
+      exisitingInternalPrototype.clone()
+    );
+  }
+}
+
+```
 
 - vs Factory Method
 I would imagine the difining line between Factory Method and Prototype is where you want to start with. Do you always want to start with the same set of values for an object or do you want the flexibility to start from a variation? I think with that in mind, the answer is clear:)
 
 - Registry Enhancement
 Additionally, I have seen examples where a registry is leveraged along side prototyping. Basically, there is a Manager/Registry class with most-likely static map of the prototypes. Whenever needed, the specific prototype is retrieved and cloned. 
+```java
+public class PrototypeRegistry {
+  // could be Enum or String depending on the need
+  final private static Map<PrototypeEnum, Prototype> prototypeMap;
+  static {
+    prototypeMap = new HashMap<>();
+  }
+
+  public static void register(PrototypeEnum prototypeEnum, Prototype prototype) {
+    prototypeMap.push(prototypeEnum, prototype);
+  }
+
+  public static Prototype create(PrototypeEnum prototypeEnum) {
+    return (Prototype) prototypeMap.get(prototypeEnum);
+  }
+}
+
+```
+
+Registry is especially useful when you want to inistialize a generic class where the exact type would be determined at run time. This case, all you need is to new the specific type once and register it so that later on when required, it could be cloned. 
+(Remember that it is impossible to initialize an instance of the generic class without explicitly passing a Class object as argument.)
 
 
 
