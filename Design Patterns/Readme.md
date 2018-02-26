@@ -6,8 +6,7 @@
 ---
 
 ## Creational Patterns
-> Often, designs start out using Factory Method (less complicated, more customizable, subclasses proliferate) and evolve toward Abstract Factory, Prototype, or Builder (more flexible, more complex) as the designer discovers where more flexibility is needed.
--- sourcemaking.com
+> Often, designs start out using Factory Method (less complicated, more customizable, subclasses proliferate) and evolve toward Abstract Factory, Prototype, or Builder (more flexible, more complex) as the designer discovers where more flexibility is needed. - sourcemaking.com
 
 #### 1. Builder
 Builder pattern aims to construct objects in a most customizable way (in contrast to factory pattern). The attributes of the objects are indirectly set through the builder class which controls the flow. This sounds abstract so let look at some codes:
@@ -153,6 +152,100 @@ public class PrototypeRegistry {
 Registry is especially useful when you want to inistialize a generic class where the exact type would be determined at run time. This case, all you need is to new the specific type once and register it so that later on when required, it could be cloned. 
 (Remember that it is impossible to initialize an instance of the generic class without explicitly passing a Class object as argument.)
 
+4. Pool and Singleton
+Some objects are so lightweight that they are disposable and people tend to create them on the fly whenever needed. However, there are some objects that are costly to create, e.g. connections, threads, and so forth. Thus, the intuition is to minimize the creation. 
 
+And that is why we have pools and singletons. These two are pretty straighforward. One is to create a fixed number of objects and register them in a place. Whoever needs an instance make a request to the registry. Examples could be found in thread pooling, connection pooling, log managers.
+
+On the other hand, some class is well-designed that only one instance is ever needed throughout the lifetime. That is where the singleton pattern comes into play. Many dependency injection frameworks default the creation of objects to be singleton. Also, typical web services aiming to process numerous concurrent requests are designed to be stateless so that no contention would happen and therefore a singleton service object would suffice.
+
+For singleton, there are quite a few strategies to create them. The main concern is whether to create them eagerly or lazily. For eager decision, enum and static are natural option and involve almost no complexity. As for lazy-initialization, it could be as simple as just check if there is an instance already created. 
+```java
+public class Target {
+  private Target target = null;
+
+  public static Target getInstance() {
+    if (target == null)
+      target = new Target();
+    return target;
+  }
+}
+
+```
+The only concern about this code is concurrency. (What?! I thought that's why we want a singleton patter!) Yeah, sadly, imagine multiple threads happen to be within the if block that multiple instances are still created. Worse of all, each may hold a different instance.
+
+So what do we do? Hold a lock and create it!
+```java
+public class Target {
+  private Target target = null;
+
+  public synchronized static Target getInstance() {
+    if (target == null)
+      target = new Target();
+    return target;
+  }
+}
+
+```
+Well, that's good but maybe a bit slow since all requests using the class are blocked until it is finished. So, what now?
+```java
+public class Target {
+  private Target target = null;
+
+  public static Target getInstance() {
+    if (target == null) {
+      // recall that you hold the lock on the class instead of an object when it is static
+      synchronized(Target.class) {
+        target = new Target();
+      }
+    }
+    return target;
+  }
+}
+
+```
+That looks more like it, right? I mean, right?
+Not really, again, imagine all request goes within if block concurrently. Now even though it is synchronized, every requests would line up and create an instance one after another.
+```java
+public class Target {
+  private volatile Target target = null; // volatile makes the change visible to other threads
+
+  public static Target getInstance() {
+    if (target == null) {
+      synchronized(Target.class) {
+        if (target == null)
+          target = new Target();
+      }
+    }
+    return target;
+  }
+}
+
+```
+This technique is called double-check locking. There could be also final touch on performance by introducing one more local variable. 
+```java
+public class Target {
+  private volatile Target target = null; // volatile makes the change visible to other threads
+
+  public static Target getInstance() {
+    Target result = target;
+    if (result == null) {
+      synchronized(Target.class) {
+        if (target == null)
+          result = target = new Target();
+      }
+    }
+    return target;
+  }
+}
+
+```
+> Note the local variable result, which seems unnecessary. The effect of this is that in cases where helper is already initialized (i.e., most of the time), the volatile field is only accessed once (due to "return result;" instead of "return helper;"), which can improve the method's overall performance by as much as 25 percent. - https://en.wikipedia.org/wiki/Double-checked_locking
+
+Personally, I think this problem has widedly addressed and solved. It is good to know but probably somewhat impractical to actually implement it in the code. There are more sophisticated solutions by using already invented wheels:
+1. inner class helper https://stackoverflow.com/a/16542487
+2. java 8 lambda helper https://stackoverflow.com/a/29133244
+3. Apache common lang LazyInitializer
+Or even, simply just consider early initialization like Spring depency injection does.
 
 
