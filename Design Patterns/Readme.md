@@ -6,6 +6,8 @@
 ---
 
 ## Creational Patterns
+> Often, designs start out using Factory Method (less complicated, more customizable, subclasses proliferate) and evolve toward Abstract Factory, Prototype, or Builder (more flexible, more complex) as the designer discovers where more flexibility is needed.
+-- sourcemaking.com
 
 #### 1. Builder
 Builder pattern aims to construct objects in a most customizable way (in contrast to factory pattern). The attributes of the objects are indirectly set through the builder class which controls the flow. This sounds abstract so let look at some codes:
@@ -91,6 +93,15 @@ Abstract factory is intented for creating a bunch of related objects. Imagine yo
 The patterns are not mutually exclusive. You may, in or abstract factories, use a factory method for each implementation detail. Any case, it is more of a question of dimensions. Factory method varies in one demension where there is one variable, could be the platform. On the other hand, Abstract factory hands two-demensional problems. Higher demensions maybe achieved with further abstraction but I guess that suddenly makes code so much harder to understand and maintain. Deep down, it is a conscious descision of maintainibility and leveraging patterns.
 
 
+#### 3. Prototype (clone over new)
+- Motive
+The key concept of prototyping is to clone. By implementing the Clonable interface, "new" action happens internally and all the setup, depending on implementation, would be cloned to the newly initiated object. 
+
+- vs Factory Method
+I would imagine the difining line between Factory Method and Prototype is where you want to start with. Do you always want to start with the same set of values for an object or do you want the flexibility to start from a variation? I think with that in mind, the answer is clear:)
+
+- Registry Enhancement
+Additionally, I have seen examples where a registry is leveraged along side prototyping. Basically, there is a Manager/Registry class with most-likely static map of the prototypes. Whenever needed, the specific prototype is retrieved and cloned. 
 
 
 
