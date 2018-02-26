@@ -246,6 +246,7 @@ Personally, I think this problem has widedly addressed and solved. It is good to
 1. inner class helper https://stackoverflow.com/a/16542487
 2. java 8 lambda helper https://stackoverflow.com/a/29133244
 3. Apache common lang LazyInitializer
+
 Or even, simply just consider early initialization like Spring depency injection does.
 
 
