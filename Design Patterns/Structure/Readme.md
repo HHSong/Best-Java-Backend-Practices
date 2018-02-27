@@ -15,14 +15,14 @@ public interface BreadCrumb { // BreadCrumb is the code name for the logger
 }
 public class BreadCrumbManager {
   final private static Map<Class, BreadCrumb> registry = new HashMap<>();
-  
+
   public static getBreadCrumb(Class invoker) {
     if (!registry.contains(invoker))
       init(invoker);
     return registry.get(invoker);
   }
 }
-public class BreadCrumbLog4jDelegator implements BreadCrumb {
+public class BreadCrumbLog4jAdapter implements BreadCrumb {
   private Logger logger;
   public BreadCrumbLog4jDelegator(Class invoker) {
     logger = LogManager.getLogger(invoker);
@@ -120,5 +120,10 @@ public class UserClass {
   }
 }
 ```
+
+#### 5. Facade
+Think of Facade pattern as ease of use. The whole point is to provide user-friendly interface on top of a complex library. A user without prior knowledge would be able to use the core functionalities of the library. At the same time, advanced users would still be able to take full control over the library through its original APIs. In short, it is one extra entry point of the complicated system. 
+
+
 
 
