@@ -5,6 +5,47 @@
 As self-explanatory as it can be, an adapter takes an existing object and exposes common interface to clients. One of my assignment at Innova Solutions was to create an abstraction of logs and event handling for the reason that there is no common interface exisiting. All major vendors like log4j, logback, ... have their own interface. There should not be any problem if we don't switch to another. Yet, somehow a concern was addressed back then and I was asked to provide with such flexibility. And it turned out, log4j did, at a critical landmark point, caused a file lock and blocked all the spring framework processes on the same machine from finishing initialization.
 
 Anyway, by adapting adapter, command and singleton patterns, I exposed a common interface and delegate the actions to specified logging frameworks. Thankfully, the these frameworks provide capability of customizing log levels which varies framework by framework. Thus, even though different vendor has different severity levels, I was able to insert corresponding ones.
+```java
+public interface BreadCrumb { // BreadCrumb is the code name for the logger
+  void lay(Flavor flavor, Object... msgs);
+  void trace(Object... msgs);
+  void debug(Object... msgs);
+  void error(Object... msgs);
+  // and so on
+}
+public class BreadCrumbManager {
+  final private static Map<Class, BreadCrumb> registry = new HashMap<>();
+  
+  public static getBreadCrumb(Class invoker) {
+    if (!registry.contains(invoker))
+      init(invoker);
+    return registry.get(invoker);
+  }
+}
+public class BreadCrumbLog4jDelegator implements BreadCrumb {
+  private Logger logger;
+  public BreadCrumbLog4jDelegator(Class invoker) {
+    logger = LogManager.getLogger(invoker);
+  }
+
+  @override
+  public void lay(Flavor flavor, Object... msgs) {
+    logger.log(
+      toLog4jLevel(flavor),
+      msgs
+    );
+  }
+
+  @override
+  public void debug(Object...msgs) {
+    lay(Flavor.DEBUG, msgs);
+  }
+
+  private Level toLog4jLevel(Flavor flavor) {
+    // you get the idea
+  }
+}
+```
 
 #### 2. Bridge 
 When it comes to bridge pattern, you will see "decouple an abstraction from its implementation" being in every tutorials. But what does that mean? I took me such a long time to fully diagest the idea. If you google it, all the top hit examples are so dumb that you don't see the point of having the pattern.
