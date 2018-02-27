@@ -51,7 +51,7 @@ public class Bumper extends AbstractDecorator {
 }
 
 public class CardHolder extends AbstractDecorator {
-  public CardHolder(AbstractDecorator) {
+  public CardHolder(AbstractDecorator decorator) {
     super(decorator);
   }
   @override
