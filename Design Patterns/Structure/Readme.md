@@ -18,8 +18,8 @@ In java world, wrapping an object with another object is a swiss knife. Whenever
 ```java
 public abstract AbstractDecorator {
   private AbstractDecorator core;
-  public AbstractDecorator(AbstractDecorator abstractDecorator) {
-    core = abstractWrap;
+  public AbstractDecorator(AbstractDecorator decorator) {
+    core = decorator;
   }
   public void perform() {
     core.perform();
