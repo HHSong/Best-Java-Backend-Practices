@@ -67,7 +67,7 @@ public class CardHolder extends AbstractDecorator {
 public class UserClass {
   public void someFuntionUsesIPhone() {
     // do something
-    AbstractDecorator iPhoneWithAddOns = new AbstractDecorator(new IPhone());
+    AbstractDecorator iPhoneWithAddOns = new IPhoneWrapper(new IPhone());
 
     if (isBumperAdded)
       iPhoneWithAddOns = new Bumper(iPhoneWithAddOns);
