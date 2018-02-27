@@ -14,7 +14,7 @@ So here is my two cents, it is about dimensions again, as I compare Abstract Fac
 Similar to Adapter pattern, Composite also exposes common interface to users except that this time, the classes to be commonized are node and collection. A collection is a node but also holds a bunch of more nodes. The classic example is arithmetic expressions are themselves expression.
 
 #### 4. Decorator
-In java world, wrapping an object with another object is a swiss knife. Whenever you want to make an adapter, bridge two interfaces, and so on, you wrap! Most design patterns involve wrapping and so does Decorator. In fact, it pushes toward a point that if you need to add features to an object without modifying the existing class - could be 3rd party libraries that you don't have control over - you wrap the object with a class we defined. And we could further add more by recursively wrapping one with another.
+In java world, wrapping an object with another object is a swiss knife. Whenever you want to make an adapter, bridge two interfaces, and so on, you wrap! Most design patterns involve wrapping and so does Decorator. In fact, it pushes toward such extend that adding features to an object without modifying the existing class - could be 3rd party libraries that you don't have control over - is done by wrapping the unmodifiable object with a class we defined. And we could further add more by recursively wrapping one with another.
 ```java
 public abstract AbstractDecorator {
   private AbstractDecorator core;
