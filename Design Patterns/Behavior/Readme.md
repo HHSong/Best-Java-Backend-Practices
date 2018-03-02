@@ -151,8 +151,16 @@ public class BookkeepInovkerCommand implements Command {
 
 
 #### 3. Interpreter
+I do not have much marks regarding to Interpreter pattern. It seems to focus specifically on parsing. I guess any kind of parser is an interpreter of some sort.
+
 #### 4. Iterator
+The idea is simple but the implementation could be complex. The reason to use an iterator is to decouple the data structure from accessing. Each of them could vary separately.
+
+Since this is a widely-used pattern in Java collection, I would suggest just go ahead and look into the underlying code in ArrayList implementation. 
+
 #### 5. Mediator
+If you have a set of objects that would interact with one another or one with multiple ones, and you want to decouple the binding so that these objects are reusable, introduce a Mediator pattern. Essentially, it is an additional object that in between of the communication. One does not need to know another except for the Mediator.
+
 #### 6. Memento
 #### 7. Observer
 #### 8. State
