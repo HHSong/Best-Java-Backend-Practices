@@ -145,7 +145,7 @@ public class PrototypeRegistry {
 Registry is especially useful when you want to inistialize a generic class where the exact type would be determined at run time. This case, all you need is to new the specific type once and register it so that later on when required, it could be cloned. 
 (Remember that it is impossible to initialize an instance of the generic class without explicitly passing a Class object as argument.)
 
-4. Pool and Singleton
+#### 4. Pool and Singleton
 Some objects are so lightweight that they are disposable and people tend to create them on the fly whenever needed. However, there are some objects that are costly to create, e.g. connections, threads, and so forth. Thus, the intuition is to minimize the creation. 
 
 And that is why we have pools and singletons. These two are pretty straighforward. One is to create a fixed number of objects and register them in a place. Whoever needs an instance make a request to the registry. Examples could be found in thread pooling, connection pooling, log managers.

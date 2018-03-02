@@ -23,3 +23,4 @@ Along my journey as a backend developer, I realize I am not writing codes for ju
 13. Stateless Design <!-- thread safety, DI, when not to -->
 <!-- 14. Terminology/ Programmer's mindset -->
 14. Life Expectancy of Codes?
+<!-- persistence: ORM, Spring Data, JPA -->
