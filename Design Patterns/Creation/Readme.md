@@ -165,7 +165,7 @@ public class Target {
 }
 
 ```
-The only concern about this code is concurrency. (What?! I thought that's why we want a singleton patter!) Yeah but no eactly. Single-threaded application still cares for memory managements. And sadly, for concurrent ones, imagine multiple threads happen to be within the if block that multiple instances are still created. Worse of all, each may hold a different instance.
+The only concern about this code is concurrency. (What?! I thought that's why we want a singleton patter!) Yeah but not eactly. Single-threaded application still cares for memory managements. And sadly, for concurrent ones, imagine multiple threads happen to be within the if block that multiple instances are still created. Worse of all, each may hold a different instance.
 
 So what do we do? Hold a lock and create it!
 ```java
