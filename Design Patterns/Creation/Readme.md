@@ -53,7 +53,7 @@ public class Advertisement {
 
 ```
 
-The codes look long and tedious. And yes they are. But we gain the advantage of controlling the flow of building the objects. A more complicated flow control could be done using different inner classes to expose certain fields before/after other fields. Some variation may have the duplicate fields in the builder class as well and initialize the Advertisement object when callign build() function.
+The codes look long and tedious. And yes they are. But we gain the advantage of controlling the object-building flow. A more complicated flow control could be done using different inner classes to expose certain fields before/after other fields. Some variation may have the duplicate fields in the builder class as well and initialize the Advertisement object when callign build() function.
 Another advantage of this is to build a functional style of object creation: through a chain of function calls. It makes code a bit more readable and cleaner.
 ```java
 Advertisement ad = new AdvertisementBuilder()
@@ -165,7 +165,7 @@ public class Target {
 }
 
 ```
-The only concern about this code is concurrency. (What?! I thought that's why we want a singleton patter!) Yeah, sadly, imagine multiple threads happen to be within the if block that multiple instances are still created. Worse of all, each may hold a different instance.
+The only concern about this code is concurrency. (What?! I thought that's why we want a singleton patter!) Yeah but no eactly. Single-threaded application still cares for memory managements. And sadly, for concurrent ones, imagine multiple threads happen to be within the if block that multiple instances are still created. Worse of all, each may hold a different instance.
 
 So what do we do? Hold a lock and create it!
 ```java
