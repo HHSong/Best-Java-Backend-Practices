@@ -122,7 +122,16 @@ public class UserClass {
 ```
 
 #### 5. Facade
-Think of Facade pattern as ease of use. The whole point is to provide user-friendly interface on top of a complex library. A user without prior knowledge would be able to use the core functionalities of the library. At the same time, advanced users would still be able to take full control over the library through its original APIs. In short, it is one extra entry point of the complicated system. 
+Think of Facade pattern as ease of use. The whole point is to provide user-friendly interface on top of a complex library. A user without prior knowledge would be able to use the core functionalities of the library. At the same time, advanced users would still be able to take full control over the library through its original APIs. In short, it is one extra entry point of the complicated system.
+
+ 
+#### 6. Flyweight
+Why do we want a Flyweight pattern? When a huge number of composite objects are needed and most parts are resuable, we share. Flyweight is such a patter that it takes the idea of pooling and split a composite object into two parts: stateless and stateful. The later obviously is not shareable. So we create them on the fly. On the other hand, the stateless part would be managed in a registry and retrieved when needed. One key concept in mind: let the users provide the states.
+
+#### 7. Proxy
+Proxy, in a sense, is to capture all the interaction between user and a real object and most importantly to look like the real object. In other words, a proxy implements the same interface as the real object does. 
+
+So how is Proxy useful? Think about control. Whenever you want controllability over users' interaction with the object, you use a proxy. Let's say you have a thread pool and there's a naughty user that joins/destroys the thread every time he's done with it. Pretty soon, we are running out of threads. So what do you do, you PROXY! Stub a dummy body when a user closes the thread and delegate the rest to the real thread.
 
 
 
