@@ -33,7 +33,9 @@
 
 #### Behavior Patterns
 1. Chain of Responsibility
+: Anarchism works, at least in your code
 2. Command
+: 
 3. Interpreter
 4. Iterator
 5. Mediator

@@ -28,7 +28,7 @@ public class BreadCrumbLog4jAdapter implements BreadCrumb {
     logger = LogManager.getLogger(invoker);
   }
 
-  @override
+  @Override
   public void lay(Flavor flavor, Object... msgs) {
     logger.log(
       toLog4jLevel(flavor),
@@ -36,7 +36,7 @@ public class BreadCrumbLog4jAdapter implements BreadCrumb {
     );
   }
 
-  @override
+  @Override
   public void debug(Object...msgs) {
     lay(Flavor.DEBUG, msgs);
   }
@@ -70,7 +70,7 @@ public abstract AbstractDecorator {
 public class IPhoneWrapper extends AbstractDecorator {
   private IPhone iPhone;
   // whatever constructor as long as we can have iphone before perform() is called
-  @override
+  @Override
   public void perform() {
     iPhone.buzz();
   }
@@ -80,7 +80,7 @@ public class Bumper extends AbstractDecorator {
   public Bumper(AbstractDecorator decorator) {
     super(decorator);
   }
-  @override
+  @Override
   public void perform() {
     protect();
     super.perform();
@@ -95,7 +95,7 @@ public class CardHolder extends AbstractDecorator {
   public CardHolder(AbstractDecorator decorator) {
     super(decorator);
   }
-  @override
+  @Override
   public void perform() {
     super.perform();
     holdCard();
