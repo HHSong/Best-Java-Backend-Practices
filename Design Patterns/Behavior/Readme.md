@@ -148,7 +148,7 @@ public class BookkeepInovkerCommand implements Command {
 }
 
 ```
-
+An example of Command pattern is a Level 3 REST api aka HATEOS. The point is to provide available actions embedded in the response to frontend. The available actions are the Commands in this case with other REST endpoint URLs as Receivers.
 
 #### 3. Interpreter
 I do not have much marks regarding to Interpreter pattern. It seems to focus specifically on parsing. I guess any kind of parser is an interpreter of some sort.
@@ -162,8 +162,33 @@ Since this is a widely-used pattern in Java collection, I would suggest just go 
 If you have a set of objects that would interact with one another or one with multiple ones, and you want to decouple the binding so that these objects are reusable, introduce a Mediator pattern. Essentially, it is an additional object that in between of the communication. One does not need to know another except for the Mediator.
 
 #### 6. Memento
-#### 7. Observer
+Memento is a pattern you want to consider when you want to modify a thing and you want it rolled back afterwards. So how is it possible?
+
+There is a basic setup of three classes:
+1. Originator: the object with states you want to modify upon
+2. CareTaker: despite the naming, this is more like a user of your code
+3. Memento: a checkpoint that has essential state
+
+Several remarks here:
+1. you have Originator exposes save and restore methods that returns a Memento and takes a Memento respectively.
+2. Memento should be "opaque" to the users, which means no operation should or could be performed upon it.
+3. A sophisticated example would be Spring transaction management. It handles those service-layer database transactions. That is, several different function calls could be made to databases and got rolled back all together. The way Spring does it is through JDBC Savepoint and AOP. When a function annotated with @Transactional is called, it disables auto-commit feature and initializes a stack of Savepoint. Instead of actually committing each statements to the database, it push a savepoint to the stack and the JDBC connection would pretend that the query was executed. If everything is fine, it will commit the changes in the end. However, things could go south. That's why we want the help of transaction manager. It would retrieve the savepoints and have the state rolled back.
+
+#### 7. Observer aka. Subscriber aka. Listerner
+The pattern should be as simple as it sounds. There is a million application including React.js, Redux.js, and every reactive programming paradigm. The implementation should be trivial. Also Spring has build-in annotation that does the job. Even, Java Objec.notifyAll() leverages the pattern. So I guess the question is, why? Why do we want it? 
+
+The answer is obvious: decoupling! We want the ability to actively publish information to an unknown number of Listeners. Meanwhile, a listener should be anonymous to the Publisher. Thererfore, we have one directional dependency in this pattern.
+
 #### 8. State
+The pattern describes a state machine. Operations available depend on the states. For that reason, we would have states as different implementation and each time an operation is performed, the state machine changes its state and expose a new set of operations to the user. 
+
 #### 9. Strategy
+There is really not much to say about Strategy pattern. It has already internalized in every Java programmer's heart. If you use late binding, you are using Strategy.
+
 #### 10. Template Method
+If you have ever used any framework that you don't specify a main function and it runs. How magical! This simply because the framework has a main function. And it is the framework who controls the flow of execution. It simply takes our implementation detail either via Dependency Injection or through overriding methods in a class. This is Template pattern. We set up a placeholder for user of our program to swap in implementation.
+
 #### 11. Visitor
+Visitor propose to reserve future extension by having object storing a visitor interface. The object does no more than just calling the visitor for a visit(object). And the visitor, in turn, takes the object and act upon it.
+
+
