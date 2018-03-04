@@ -53,5 +53,5 @@
 10. [Template Method](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#10-template-method)
 : you direct a show but let the actors improvise
 11. [Visitor](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#11-visitor)
-: lol think about it, it's exact a callback 
+: lol think about it, it's exactly a callback 
 
