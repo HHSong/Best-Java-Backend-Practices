@@ -5,6 +5,8 @@ Coding is far beyond getting the outputs right, especially when that becomes a h
 Along my journey as a backend developer, I realize I am not writing codes for just myself, but also people that I am working with. Clean codes and sophisticated designs are so much like art pieces that it takes time to learn to see the value. Therefore, I decided to explan each and every good practices of server-side programming.
 
 ---
+Disclaimer:
+This is more of a self-examing blogging of what I know in this area than being educational. That being said, I'm still trying to make it fun and informative. Also, feel free to correct me.
 
 ### Topics Covered
 

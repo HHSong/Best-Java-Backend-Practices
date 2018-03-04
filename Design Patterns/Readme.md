@@ -21,7 +21,7 @@
 2. [Bridge](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Structure#2-bridge)
 : addition instead of multiplication
 3. [Composite](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Structure#3-composite)
-: well... I guess you messed up your data structure with data
+: well... I guess you wanna mess up your data structure with the data type
 4. [Decorator](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Structure#4-decorator)
 : when Iron Man puts on Hulkbuster, you get the idea
 5. [Facade](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Structure#5-facade)
@@ -32,16 +32,26 @@
 : the moment you realize the person you're talking to isn't in charge
 
 #### Behavior Patterns
-1. Chain of Responsibility
-: Anarchism works, at least in your code
-2. Command
-: 
-3. Interpreter
-4. Iterator
-5. Mediator
-6. Memento
-7. Observer
-8. State
-9. Strategy
-10. Template Method
-11. Visitor
+1. [Chain of Responsibility](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#1-chain-of-responsibility)
+: anarchism works, at least in your code
+2. [Command](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#2-command)
+: your code shoud be as simple as pushing a button
+3. [Interpreter](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#3-interpreter)
+: reading an input and parsing to a structure
+4. [Iterator](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#4-iterator)
+: holding data is not the same responsibility as walking you through
+5. [Mediator](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#5-mediator)
+: it sucks when you have to talk to five people separately just to get a thing done
+6. [Memento](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#6-memento)
+: life is easier if you can start over
+7. [Observer](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#7-observer-aka-subscriber-aka-listerner)
+: sometimes you just want to shut up and listen
+8. [State](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#8-state)
+: finite state machine, if that rings a bell
+9. [Strategy](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#9-strategy)
+: in short, this is Java
+10. [Template Method](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#10-template-method)
+: you direct a show but let the actors improvise
+11. [Visitor](https://github.com/HHSong/Best-Java-Backend-Practices/tree/master/Design%20Patterns/Behavior#11-visitor)
+: lol think about it, it's exact a callback 
+
